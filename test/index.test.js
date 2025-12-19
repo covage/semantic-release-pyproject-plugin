@@ -2,12 +2,12 @@ const plugin = require('../src/index');
 const fs = require('fs').promises;
 const toml = require('smol-toml');
 
-jest.mock('../src/poetry_version_replace', () => {
-    const poetryVersionReplace = jest.requireActual('../src/poetry_version_replace')
+jest.mock('../src/pyproject_version_replace', () => {
+    const projectVersionReplace = jest.requireActual('../src/pyproject_version_replace')
     return {
         __esModule: true,
-        replaceTomlToolPoetryVersion: (existingContent, nextRelease) => {
-            let outputContent = poetryVersionReplace.replaceTomlToolPoetryVersion(existingContent, nextRelease) 
+        replaceTomlProjectVersion: (existingContent, nextRelease) => {
+            let outputContent = projectVersionReplace.replaceTomlProjectVersion(existingContent, nextRelease) 
             if (existingContent.indexOf("will-be-a-broken-document-when-this-plugin-will-manipulate") !== -1) {
                 outputContent = outputContent.replaceAll("=", ";")
                 outputContent = outputContent.replaceAll("[", "{")

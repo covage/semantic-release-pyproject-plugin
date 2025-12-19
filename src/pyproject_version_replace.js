@@ -1,4 +1,4 @@
-function replaceTomlToolPoetryVersion(content, newVersion) {
+function replaceTomlProjectVersion(content, newVersion) {
     const sectionPositions = [
         content.indexOf("[tool.poetry]"),
         content.indexOf("[project]")
@@ -28,5 +28,5 @@ function replaceTomlToolPoetryVersion(content, newVersion) {
 }
 
 module.exports = {
-    replaceTomlToolPoetryVersion
+    replaceTomlProjectVersion
 };

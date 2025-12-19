@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const SemanticReleaseError = require('@semantic-release/error');
-const { replaceTomlToolPoetryVersion } = require('./poetry_version_replace');
+const { replaceTomlProjectVersion } = require('./pyproject_version_replace');
 const { parse: parseToml } = require('smol-toml');
 
 const DEFAULT_PYPROJECT_FILE_NAME = 'pyproject.toml';
@@ -42,7 +42,7 @@ async function prepare(pluginConfig, context) {
         }
 
         const nextVersionRepr = nextRelease.version;
-        const updatedContent = replaceTomlToolPoetryVersion(content, nextVersionRepr);
+        const updatedContent = replaceTomlProjectVersion(content, nextVersionRepr);
 
         // verify to ensure TOML validity after changes (safe-guard)
         try {

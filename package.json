@@ -1,5 +1,5 @@
 {
-    "name": "@covage/semantic-release-poetry-plugin",
+    "name": "@covage/semantic-release-pyproject-plugin",
     "version": "0.2.0-development",
     "description": "A semantic-release plugin for bumping version of Poetry projects.",
     "author": "Covage DSI <dsi@covage.com>",
@@ -17,12 +17,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/covage/semantic-release-poetry-plugin.git"
+        "url": "git+https://github.com/covage/semantic-release-pyproject-plugin.git"
     },
     "bugs": {
-        "url": "https://github.com/covage/semantic-release-poetry-plugin/issues"
+        "url": "https://github.com/covage/semantic-release-pyproject-plugin/issues"
     },
-    "homepage": "https://github.com/covage/semantic-release-poetry-plugin#readme",
+    "homepage": "https://github.com/covage/semantic-release-pyproject-plugin#readme",
     "main": "src/index.js",
     "dependencies": {
         "@semantic-release/error": "^3.0.0",

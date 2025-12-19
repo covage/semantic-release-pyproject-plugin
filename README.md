@@ -1,6 +1,6 @@
-# semantic-release-poetry-plugin
+# semantic-release-pyproject-plugin
 
-![npm-version](https://img.shields.io/npm/v/@covage/semantic-release-poetry-plugin.svg) ![License](https://img.shields.io/badge/License-MIT-blue)
+![npm-version](https://img.shields.io/npm/v/@covage/semantic-release-pyproject-plugin.svg) ![License](https://img.shields.io/badge/License-MIT-blue)
 
 A [**semantic-release**](https://github.com/semantic-release/semantic-release) plugin for bumping version of Python projects inside their `pyproject.toml` file.
 
@@ -18,7 +18,7 @@ This plugin will look for the existing version string in two possible locations,
 
 ## How to install this plugin
 
-Make sure to install the NPM package `@covage/semantic-release-poetry-plugin`.
+Make sure to install the NPM package `@covage/semantic-release-pyproject-plugin`.
 
 In your `.releaserc.yml`, add the plugin in the proper order.
 Make sure to commit the change made by this plugin on the `pyproject.toml` file.
@@ -51,4 +51,4 @@ The idea behind this plugin is to prevent the use of custom version bumping scri
 
 - [x] basic support for Poetry convention
 - [x] basic support for PEP 621 convention
-- [ ] verify that the TOML syntax is still correct
+- [x] rename from `semantic-release-poetry-plugin` to `semantic-release-pyproject-plugin`
