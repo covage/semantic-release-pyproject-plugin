@@ -1,6 +1,6 @@
 {
     "name": "@covage/semantic-release-pyproject-plugin",
-    "version": "0.2.0-development",
+    "version": "0.3.0-development",
     "description": "A semantic-release plugin for bumping version of Poetry projects.",
     "author": "Covage DSI <dsi@covage.com>",
     "license": "MIT",
