@@ -7,8 +7,11 @@
     "keywords": [
         "semantic-release",
         "plugin",
-        "poetry",
         "python",
+        "pyproject",
+        "toml",
+        "poetry",
+        "uv",
         "bump",
         "version"
     ],
