@@ -33,18 +33,35 @@ async function prepare(pluginConfig, context) {
 
     const pyprojectPath = DEFAULT_PYPROJECT_FILE_NAME;
 
-    try {
-        const content = await fs.readFile(pyprojectPath, 'utf8');
+    const bumpVersion = (content, nextRelease) => {
+        // verify to ensure TOML validity before changes
+        try {
+            parseToml(content);
+        } catch (error) {
+            throw new Error("Invalid input TOML: " + error)
+        }
 
         const nextVersionRepr = nextRelease.version;
         const updatedContent = replaceTomlToolPoetryVersion(content, nextVersionRepr);
 
-        // verify to ensure TOML validity
-        parseToml(updatedContent);
+        // verify to ensure TOML validity after changes (safe-guard)
+        try {
+            parseToml(updatedContent);
+        } catch (error) {
+            throw new Error("Invalid output TOML: " + error)
+        }
+
+        return updatedContent;
+    }
+    
+    try {
+        const content = await fs.readFile(pyprojectPath, 'utf8');
+        
+        const updatedContent = bumpVersion(content, nextRelease);
 
         await fs.writeFile(pyprojectPath, updatedContent);
 
-        logger.log(`Updated ${pyprojectPath} version to ${nextRelease.version}`);
+        logger.log(`Updated ${pyprojectPath} version to "${nextRelease.version}".`);
     } catch (error) {
         throw new SemanticReleaseError(
             `Error while replacing version in ${pyprojectPath}: ` + error.message
